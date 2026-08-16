@@ -1,21 +1,39 @@
-# Loan-Prediction
-For this project I will be exploring publicly available data from LendingClub.com. Lending Club connects people who need money (borrowers) with people who have money (investors). Hopefully, as an investor you would want to invest in people who showed a profile of having a high probability of paying you back. I will try to create a model that will help predict this.
-<br /><br />
-Lending club had a very interesting year in 2016, so let's check out some of their data and keep the context in mind. This data is from before they even went public.
-I will use lending data from 2007-2010 and be trying to classify and predict whether or not the borrower paid back their loan in full. You can download the data from here or just use the csv already provided. It's recommended you use the csv provided as it has been cleaned of NA values.
-Here are what the columns represent:<br />
-* credit.policy: 1 if the customer meets the credit underwriting criteria of LendingClub.com, and 0 otherwise.
-*	purpose: The purpose of the loan (takes values "credit_card", "debt_consolidation", "educational", "major_purchase", "small_business", and "all_other").
-*	int.rate: The interest rate of the loan, as a proportion (a rate of 11% would be stored as 0.11). Borrowers judged by LendingClub.com to be more risky are assigned higher interest rates.
-*	installment: The monthly installments owed by the borrower if the loan is funded.
-* log.annual.inc: The natural log of the self-reported annual income of the borrower.
-*	dti: The debt-to-income ratio of the borrower (amount of debt divided by annual income).
-* fico: The FICO credit score of the borrower.
-*	days.with.cr.line: The number of days the borrower has had a credit line.
-*	revol.bal: The borrower's revolving balance (amount unpaid at the end of the credit card billing cycle).
-*	revol.util: The borrower's revolving line utilization rate (the amount of the credit line used relative to total credit available).
-*	inq.last.6mths: The borrower's number of inquiries by creditors in the last 6 months.
-*	delinq.2yrs: The number of times the borrower had been 30+ days past due on a payment in the past 2 years.
-*	pub.rec: The borrower's number of derogatory public records (bankruptcy filings, tax liens, or judgments).
+# Loan Repayment Prediction
 
+Binary classification on LendingClub data from 2007–2010: predict whether a borrower repaid their loan in full.
 
+## Dataset
+
+Publicly available LendingClub data, pre-cleaned (no NA values). The CSV is included in the repo.
+
+**Features:**
+
+| Column | Description |
+|---|---|
+| `credit.policy` | 1 if customer met LendingClub's underwriting criteria |
+| `purpose` | Loan purpose (credit card, debt consolidation, etc.) |
+| `int.rate` | Interest rate as a decimal (e.g. 0.11 = 11%) |
+| `installment` | Monthly installment amount |
+| `log.annual.inc` | Log of self-reported annual income |
+| `dti` | Debt-to-income ratio |
+| `fico` | FICO credit score |
+| `days.with.cr.line` | Days the borrower has had a credit line |
+| `revol.bal` | Revolving balance (unpaid credit card balance) |
+| `revol.util` | Revolving line utilization rate |
+| `inq.last.6mths` | Creditor inquiries in last 6 months |
+| `delinq.2yrs` | Times 30+ days past due in past 2 years |
+| `pub.rec` | Derogatory public records (bankruptcies, tax liens) |
+
+**Target:** `not.fully.paid` — 1 if the loan was not repaid in full.
+
+## Running it
+
+Open `Loan Prediction.ipynb` in Jupyter. Requires `pandas`, `numpy`, `matplotlib`, `seaborn`, and `scikit-learn`.
+
+```bash
+jupyter notebook "Loan Prediction.ipynb"
+```
+
+## Context
+
+LendingClub had an eventful 2016, but this data predates their IPO — it's from their early lending years and gives a clean view of their underwriting criteria and borrower profiles.
